@@ -13,6 +13,8 @@ Die erste Fassung enthielt Input System 1.11.2. Im lokalen Unity-6.6-Editor wurd
 
 Bereits entpacktes Projekt aktualisieren: In `Packages/manifest.json` nur den Wert von `com.unity.inputsystem` auf `1.20.1` ändern und Unity die Pakete neu auflösen lassen. Keine Dateien in `Library/PackageCache` bearbeiten. Danach die Console leeren und neu auftretende rote Fehler prüfen. Die gemeldeten gelben UXML-/Typ-Warnungen müssen nach erfolgreicher Kompilierung separat überprüft werden.
 
+Unity 6.6 meldete anschließend `com.unity.modules.vr@1.0.0` als nicht verfügbare Abhängigkeit. Dieser unnötige Legacy-VR-Eintrag wurde aus dem Manifest entfernt. Der Kapitel-1-Code verwendet keine VR-APIs. Bestehende Projekte können die gesamte korrigierte `Packages/manifest.json` aus dem GitHub-Branch übernehmen; nach dem Speichern im Package-Manager-Dialog **Retry** wählen. Diese Korrektur wurde als JSON geprüft; eine erfolgreiche Paketauflösung im lokalen Editor ist noch zu bestätigen.
+
 Diese Prüfungen ersetzen keine Unity-Kompilierung und keinen Spieltest.
 
 ## Unity EditMode-Tests: vorhanden, hier nicht ausgeführt
