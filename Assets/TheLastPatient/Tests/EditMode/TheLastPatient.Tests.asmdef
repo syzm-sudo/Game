@@ -1,0 +1,7 @@
+{
+  "name": "TheLastPatient.Tests",
+  "rootNamespace": "TheLastPatient.Tests",
+  "references": ["TheLastPatient.Runtime", "TheLastPatient.Editor"],
+  "includePlatforms": ["Editor"],
+  "optionalUnityReferences": ["TestAssemblies"]
+}

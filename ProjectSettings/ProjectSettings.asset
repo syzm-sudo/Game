@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!129 &1
+PlayerSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 28
+  productGUID: 2abb4c9f57574c009a273dc42a18ad2e
+  companyName: BlackwoodStudio
+  productName: The Last Patient
+  defaultScreenWidth: 1280
+  defaultScreenHeight: 720
+  defaultIsNativeResolution: 1
+  runInBackground: 0
+  resizableWindow: 1
+  fullscreenMode: 3
+  activeInputHandler: 1

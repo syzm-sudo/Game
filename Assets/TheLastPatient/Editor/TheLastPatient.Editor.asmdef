@@ -1,0 +1,6 @@
+{
+  "name": "TheLastPatient.Editor",
+  "rootNamespace": "TheLastPatient.Editor",
+  "references": ["TheLastPatient.Runtime", "Unity.TextMeshPro", "Unity.RenderPipelines.Universal.Runtime", "Unity.RenderPipelines.Core.Runtime"],
+  "includePlatforms": ["Editor"]
+}

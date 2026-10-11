@@ -1,0 +1,6 @@
+{
+  "name": "TheLastPatient.Runtime",
+  "rootNamespace": "TheLastPatient",
+  "references": ["Unity.InputSystem", "Unity.TextMeshPro", "Unity.ugui"],
+  "autoReferenced": true
+}
