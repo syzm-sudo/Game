@@ -5,7 +5,13 @@
 - C#-Quellen mit dem Tree-sitter-C#-Parser auf Syntaxfehler geprüft.
 - JSON-Manifeste und Assembly-Definitionen eingelesen; interne Assembly-Referenzen, Komponenten-Dateinamen und verwendete `StoryIds` überprüft.
 - Eindeutige Unity-GUIDs und vollständige ZIP-Projektstruktur geprüft.
-- Paket-APIs mit den offiziellen Unity-Quellen abgeglichen: URP 17.6.0, Unity UI/TextMeshPro 2.6.0 für den Unity-6000.6-Zweig und Input System 1.11.2. Dieser Quellabgleich bestätigt keine Paketinstallation oder Unity-Kompilierung.
+- Paket-APIs mit den offiziellen Unity-Quellen abgeglichen: URP 17.6.0, Unity UI/TextMeshPro 2.6.0 für den Unity-6000.6-Zweig und Input System 1.20.1. Dieser Quellabgleich bestätigt keine Paketinstallation oder Unity-Kompilierung.
+
+## Behobene Paket-Inkompatibilität
+
+Die erste Fassung enthielt Input System 1.11.2. Im lokalen Unity-6.6-Editor wurde damit `CS0619` in `HIDDescriptorWindow.cs` gemeldet: Die nicht-generische `TreeViewItem`-API ist dort als Compilerfehler veraltet. Das Manifest verwendet jetzt den veröffentlichten Tag **1.20.1**. In dessen offiziellem Quelltext verwenden die HID-Editor-Klassen ab `UNITY_6000_2_OR_NEWER` die generischen `TreeView<int>`, `TreeViewItem<int>` und `TreeViewState<int>`-Typen. Der Tag erklärt Unity 6000.0 als Mindestversion. Der Fehlerpfad wurde im Quelltext geprüft; der erneute Unity-Build steht noch aus.
+
+Bereits entpacktes Projekt aktualisieren: In `Packages/manifest.json` nur den Wert von `com.unity.inputsystem` auf `1.20.1` ändern und Unity die Pakete neu auflösen lassen. Keine Dateien in `Library/PackageCache` bearbeiten. Danach die Console leeren und neu auftretende rote Fehler prüfen. Die gemeldeten gelben UXML-/Typ-Warnungen müssen nach erfolgreicher Kompilierung separat überprüft werden.
 
 Diese Prüfungen ersetzen keine Unity-Kompilierung und keinen Spieltest.
 
