@@ -15,6 +15,10 @@ Bereits entpacktes Projekt aktualisieren: In `Packages/manifest.json` nur den We
 
 Unity 6.6 meldete anschließend `com.unity.modules.vr@1.0.0` als nicht verfügbare Abhängigkeit. Dieser unnötige Legacy-VR-Eintrag wurde aus dem Manifest entfernt. Der Kapitel-1-Code verwendet keine VR-APIs. Bestehende Projekte können die gesamte korrigierte `Packages/manifest.json` aus dem GitHub-Branch übernehmen; nach dem Speichern im Package-Manager-Dialog **Retry** wählen. Diese Korrektur wurde als JSON geprüft; eine erfolgreiche Paketauflösung im lokalen Editor ist noch zu bestätigen.
 
+Im nächsten lokalen Compilerlauf wurden vier `CS0619`-Fehler in `NavMeshLinkEditor.cs` aus AI Navigation 2.0.6 und ein `CS0104`-Fehler wegen des mehrdeutigen Namens `PackageInfo` gemeldet. AI Navigation ist jetzt auf **2.0.16** gesetzt. Die Paketquelle im öffentlichen needle-mirror-Repository zeigt für Unity 6.2 und neuer die Umstellung auf `EntityId` und `GetEntityId()`; der Changelog dokumentiert den entsprechenden Fix seit 2.0.10. Die Unity-Registry antwortete in dieser Cloud mit HTTP 403, auch beim freigegebenen Wiederholungsversuch. Deshalb wurden Verfügbarkeit und Installation nicht über die Registry bestätigt. Unity auf dem lokalen PC soll das Paket weiterhin von der offiziellen Registry beziehen, nicht aus dem Spiegel installieren.
+
+Der Generator verwendet jetzt explizit `UnityEditor.PackageManager.PackageInfo`. Die beiden gemeldeten Warnungen wurden ebenfalls adressiert: `FindAnyObjectByType<EventSystem>()` statt der Suche mit Instance-ID-Sortierung und `UnityEditor.AssetPackage.Package.Import` statt der veralteten Import-Funktion. Die neue Import-API wurde anhand des offiziellen UnityCsReference-Wrappers geprüft. C#-Syntax und JSON wurden erneut geprüft; der lokale Unity-Compilerlauf bleibt erforderlich.
+
 Diese Prüfungen ersetzen keine Unity-Kompilierung und keinen Spieltest.
 
 ## Unity EditMode-Tests: vorhanden, hier nicht ausgeführt

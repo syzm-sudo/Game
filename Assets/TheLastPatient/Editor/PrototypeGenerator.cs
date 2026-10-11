@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using TMPro;
 using UnityEditor;
-using UnityEditor.PackageManager;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -115,11 +114,11 @@ namespace TheLastPatient.Editor
         private static void EnsureTmpResources()
         {
             if (Resources.Load<TMP_Settings>("TMP Settings") != null) return;
-            var package = PackageInfo.FindForAssembly(typeof(TMP_Text).Assembly);
+            var package = UnityEditor.PackageManager.PackageInfo.FindForAssembly(typeof(TMP_Text).Assembly);
             if (package == null) throw new InvalidOperationException("TextMeshPro/Unity UI ist noch nicht installiert. Warte auf den Package Manager.");
             var archives = Directory.GetFiles(package.resolvedPath, "TMP Essential Resources.unitypackage", SearchOption.AllDirectories);
             if (archives.Length == 0) throw new FileNotFoundException("Importiere Window > TextMeshPro > Import TMP Essential Resources und starte den Generator erneut.");
-            AssetDatabase.ImportPackage(archives[0], false);
+            UnityEditor.AssetPackage.Package.Import(archives[0], false);
             AssetDatabase.Refresh();
             if (Resources.Load<TMP_Settings>("TMP Settings") == null)
                 throw new InvalidOperationException("TMP-Import noch nicht abgeschlossen. Starte den Generator nach dem Import erneut.");

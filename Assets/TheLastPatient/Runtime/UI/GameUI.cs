@@ -31,7 +31,7 @@ namespace TheLastPatient
             scaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
             scaler.referenceResolution = new Vector2(1920, 1080);
             scaler.matchWidthOrHeight = 0.5f;
-            if (FindFirstObjectByType<EventSystem>() == null)
+            if (FindAnyObjectByType<EventSystem>() == null)
             {
                 var system = new GameObject("EventSystem", typeof(EventSystem), typeof(InputSystemUIInputModule));
                 system.GetComponent<InputSystemUIInputModule>().AssignDefaultActions();
